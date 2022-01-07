@@ -5,20 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <script>
-        $.ajax({
-            url: 'http://freegeoip.net/json/',
-            type: 'get',
-            dataType: 'json'
-        }).done(function (data) {
-            alert(data.ip);
-        });
-    </script>
+    <!-- <?php
+    function getIp() {
+        $keys = [
+          'HTTP_CLIENT_IP',
+          'HTTP_X_FORWARDED_FOR',
+          'REMOTE_ADDR'
+        ];
+        foreach ($keys as $key) {
+          if (!empty($_SERVER[$key])) {
+            $ip = trim(end(explode(',', $_SERVER[$key])));
+            if (filter_var($ip, FILTER_VALIDATE_IP)) {
+              return $ip;
+            }
+          }
+        }
+      }
+      
+      $ip = getIp();
+      // выведем IP клиента на экран
+      echo 'ip = ' . $ip;
+      ?> -->
+      <?php
+$ip=$_SERVER['REMOTE_ADDR'];
+echo $ip;
+?>
+
 </body>
 
 </html>
